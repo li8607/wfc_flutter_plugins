@@ -1562,7 +1562,8 @@ class ImclientPlatform extends PlatformInterface {
     }
 
     List<dynamic> datas = await methodChannel.invokeMethod("getMessages", args);
-    return _convertProtoMessages(datas);
+    // return _convertProtoMessages(datas);
+    return compute(_convertProtoMessages, datas);
   }
 
   ///根据消息状态获取会话的消息列表
